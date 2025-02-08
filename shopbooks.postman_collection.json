@@ -1,0 +1,298 @@
+{
+	"info": {
+		"_postman_id": "b0950b80-f3f5-40ca-bae3-fc4f700667f9",
+		"name": "shopbooks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40790303"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let newID = pm.variables.replaceIn('{{$randomInt}}')\r",
+							"\r",
+							"let newName = pm.variables.replaceIn('{{$randomFirstName}}')\r",
+							"let newcontactNumber = pm.variables.replaceIn('{{$randomIP}}')\r",
+							"let newemail = pm.variables.replaceIn('{{$randomDomainName}}')\r",
+							"\r",
+							"let newaddress = pm.variables.replaceIn('{{$randomStreetAddress}}')\r",
+							"\r",
+							"let newcity = pm.variables.replaceIn('{{$randomCity}}')\r",
+							"\r",
+							"   \r",
+							"\r",
+							"pm.collectionVariables.set(\"theId\", newID)\r",
+							"pm.collectionVariables.set(\"theName\", newName)\r",
+							"pm.collectionVariables.set(\"theTitle\", newcontactNumber)\r",
+							"pm.collectionVariables.set(\"theTitle\", newemail)\r",
+							"pm.collectionVariables.set(\"theTitle\", newaddress)\r",
+							"pm.collectionVariables.set(\"theTitle\", newcity)\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shop_id\":{{theid}},\r\n    \"name\":\"{{thename}}\",\r\n    \"contactNumber\":\"{{thecontactNumber}}\",\r\n    \"email\":\"{{theemail}}\",\r\n    \"Address\":\"{{theaddress}}\",\r\n    \"city\":\"{{thecity}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/Shops?theid&thename&theemail&theaddress&thecity&thecontactNumber",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"Shops"
+					],
+					"query": [
+						{
+							"key": "theid",
+							"value": null
+						},
+						{
+							"key": "thename",
+							"value": null
+						},
+						{
+							"key": "theemail",
+							"value": null
+						},
+						{
+							"key": "theaddress",
+							"value": null
+						},
+						{
+							"key": "thecity",
+							"value": null
+						},
+						{
+							"key": "thecontactNumber",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "DELETE",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/Shops",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"Shops"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by id",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get by city",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get by name",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get by email",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let newName = pm.variables.replaceIn('{{$randomFirstName}}');\r",
+							"pm.collectionVariables.set(\"thename\", newName);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"{{newname}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/Shops/967",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"Shops",
+						"967"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"let newEmail = pm.variables.replaceIn('{{$randomDomainName}}');\r",
+							"pm.collectionVariables.set(\"theemail\", newEmail);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"{{theemail}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/Shopss/35?theemail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"Shopss",
+						"35"
+					],
+					"query": [
+						{
+							"key": "theemail",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "theId",
+			"value": ""
+		},
+		{
+			"key": "theName",
+			"value": ""
+		},
+		{
+			"key": "theTitle",
+			"value": ""
+		},
+		{
+			"key": "theContactNumber",
+			"value": ""
+		},
+		{
+			"key": "theEmail",
+			"value": ""
+		},
+		{
+			"key": "theAddress",
+			"value": ""
+		},
+		{
+			"key": "theCity",
+			"value": ""
+		},
+		{
+			"key": "theid",
+			"value": ""
+		},
+		{
+			"key": "thename",
+			"value": ""
+		},
+		{
+			"key": "thecontactNumber",
+			"value": ""
+		},
+		{
+			"key": "theaddress",
+			"value": ""
+		},
+		{
+			"key": "thecity",
+			"value": ""
+		},
+		{
+			"key": "theemail",
+			"value": ""
+		}
+	]
+}
